@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haven Platform — Websites for small businesses, built and hosted with care</title>
+<meta name="description" content="Haven Platform designs, builds, and hosts websites for small businesses and local shops. Solid infrastructure, plain-spoken support, no surprise bills.">
+<meta property="og:title" content="Haven Platform">
+<meta property="og:description" content="Websites for small businesses, built and hosted with care.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F4EF;
+    --paper-deep:#EEECE3;
+    --card:#FFFFFF;
+    --ink:#1B211F;
+    --ink-soft:#5B655E;
+    --harbor:#2E6259;
+    --harbor-deep:#1F4A42;
+    --harbor-light:#DEE8E4;
+    --lamp:#C98D4A;
+    --line:#DBD8CE;
+    --radius:10px;
+    --wrap:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.15;
+    margin:0;
+    color:var(--ink);
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 1.5rem;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--harbor);outline-offset:3px;}
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    font-size:.78rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--harbor-deep);
+    font-weight:600;
+    margin-bottom:1rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width:6px;height:6px;border-radius:50%;
+    background:var(--lamp);
+    flex-shrink:0;
+  }
+
+  /* ---------- horizon divider (signature motif) ---------- */
+  .horizon{
+    position:relative;
+    height:1px;
+    background:var(--line);
+    margin:0 auto;
+    max-width:var(--wrap);
+  }
+  .horizon.animated{margin:3.5rem auto;}
+  .horizon-mark{
+    position:absolute;
+    top:-4.5px;
+    left:12%;
+    width:9px;height:9px;
+    border-radius:50%;
+    background:var(--lamp);
+  }
+  .horizon.animated .horizon-mark{
+    animation:drift 16s ease-in-out infinite;
+  }
+  @keyframes drift{
+    0%,100%{left:6%;}
+    50%{left:76%;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .horizon.animated .horizon-mark{animation:none;left:16%;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:.85rem 1.6rem;
+    border-radius:var(--radius);
+    font-size:.95rem;
+    font-weight:500;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn-primary{background:var(--harbor);color:var(--paper);}
+  .btn-primary:hover{background:var(--harbor-deep);}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent;}
+  .btn-ghost:hover{border-color:var(--harbor);color:var(--harbor-deep);}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.1rem 0;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.25rem;
+    font-weight:600;
+    text-decoration:none;
+    color:var(--ink);
+    letter-spacing:-.01em;
+  }
+  .logo span{color:var(--harbor);}
+  .nav-links{
+    display:flex;align-items:center;gap:2.2rem;
+    list-style:none;margin:0;padding:0;
+  }
+  .nav-links a{
+    text-decoration:none;color:var(--ink-soft);font-size:.95rem;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--harbor-deep);}
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;border:none;padding:.4rem;cursor:pointer;
+  }
+  .nav-toggle span{width:22px;height:2px;background:var(--ink);}
+  #navMenu{display:flex;align-items:center;gap:2.2rem;}
+
+  @media (max-width:820px){
+    .nav-toggle{display:flex;}
+    #navMenu{
+      display:none;
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;align-items:flex-start;
+      gap:1.2rem;padding:1.5rem;
+    }
+    #navMenu.open{display:flex;}
+    #navMenu .btn{width:100%;text-align:center;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:5rem 0 1rem;}
+  .hero-inner{max-width:640px;}
+  .hero h1{
+    font-size:clamp(2.1rem,5vw,3.2rem);
+    letter-spacing:-.01em;
+    margin-bottom:1.4rem;
+  }
+  .hero p.lead{
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    max-width:34rem;
+    margin-bottom:2rem;
+  }
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;}
+
+  /* ---------- sections ---------- */
+  section{padding:4.5rem 0;}
+  .section-head{max-width:38rem;margin-bottom:3rem;}
+  .section-head h2{font-size:clamp(1.6rem,3.2vw,2.15rem);}
+  .section-head p{color:var(--ink-soft);margin-top:1rem;font-size:1.05rem;}
+
+  /* services */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:2rem;
+  }
+  .card h3{font-size:1.2rem;margin-bottom:.75rem;}
+  .card p{color:var(--ink-soft);font-size:.98rem;}
+  .card .tag{
+    display:inline-block;font-size:.75rem;font-weight:600;
+    color:var(--harbor-deep);background:var(--harbor-light);
+    padding:.3rem .6rem;border-radius:20px;margin-bottom:1rem;
+  }
+
+  /* process */
+  .process-list{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+  .process-step .num{
+    font-family:'Fraunces', serif;
+    font-size:1.6rem;color:var(--lamp);
+    margin-bottom:.75rem;
+    display:block;
+  }
+  .process-step h3{font-size:1.05rem;margin-bottom:.5rem;}
+  .process-step p{color:var(--ink-soft);font-size:.95rem;}
+
+  /* why */
+  .why-section{background:var(--paper-deep);}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+  .why-item h3{font-size:1.02rem;margin-bottom:.5rem;}
+  .why-item p{color:var(--ink-soft);font-size:.92rem;}
+
+  /* pricing */
+  .grid-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:stretch;}
+  .price-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:2rem;display:flex;flex-direction:column;
+  }
+  .price-card.featured{border-color:var(--harbor);box-shadow:0 0 0 1px var(--harbor);}
+  .price-card h3{font-size:1.15rem;margin-bottom:.4rem;}
+  .price-card .who{color:var(--ink-soft);font-size:.92rem;margin-bottom:1.4rem;}
+  .price-card .amount{font-family:'Fraunces', serif;font-size:1.8rem;margin-bottom:.15rem;}
+  .price-card .amount span{font-family:'Work Sans', sans-serif;font-size:.9rem;color:var(--ink-soft);font-weight:400;}
+  .price-card .setup{font-size:.85rem;color:var(--ink-soft);margin-bottom:1.4rem;}
+  .price-card ul{list-style:none;margin:0 0 1.6rem;padding:0;flex:1;}
+  .price-card li{
+    font-size:.92rem;color:var(--ink-soft);padding:.4rem 0;
+    border-top:1px solid var(--line);
+  }
+  .price-card li:first-child{border-top:none;}
+  .pricing-note{color:var(--ink-soft);font-size:.9rem;margin-top:2rem;max-width:38rem;}
+
+  /* contact */
+  .contact-box{
+    background:var(--harbor-deep);color:var(--paper);
+    border-radius:var(--radius);
+    padding:3.5rem 3rem;
+    display:flex;flex-wrap:wrap;gap:2rem;
+    align-items:center;justify-content:space-between;
+  }
+  .contact-box h2{color:var(--paper);font-size:clamp(1.5rem,3vw,2rem);max-width:26rem;}
+  .contact-box p{color:#CFE0DA;margin-top:.75rem;max-width:26rem;}
+  .contact-box .btn-primary{background:var(--paper);color:var(--harbor-deep);}
+  .contact-box .btn-primary:hover{background:#fff;}
+
+  /* footer */
+  footer{padding:3rem 0 2.5rem;}
+  .footer-row{
+    display:flex;flex-wrap:wrap;gap:1.5rem;
+    align-items:center;justify-content:space-between;
+    padding-top:2.5rem;
+  }
+  .footer-links{display:flex;gap:1.6rem;list-style:none;padding:0;margin:0;}
+  .footer-links a{text-decoration:none;color:var(--ink-soft);font-size:.9rem;}
+  .footer-links a:hover{color:var(--harbor-deep);}
+  .footer-tag{color:var(--ink-soft);font-size:.9rem;}
+  .copyright{color:var(--ink-soft);font-size:.85rem;margin-top:2rem;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.is-visible{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
+  @media (max-width:900px){
+    .grid-3,.grid-4,.grid-pricing{grid-template-columns:1fr 1fr;}
+    .process-list{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:620px){
+    .grid-3,.grid-4,.grid-pricing,.process-list{grid-template-columns:1fr;}
+    .contact-box{padding:2.5rem 1.75rem;}
+    section{padding:3.25rem 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <a href="#top" class="logo">Haven<span>.</span> Platform</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navMenu">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#why">Why us</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary">Get a quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ---------- HERO ---------- -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <p class="eyebrow">Websites for small businesses &amp; local shops</p>
+        <h1>A website that just works — and someone who answers when it doesn't.</h1>
+        <p class="lead">We design, build, and host your site on the same infrastructure the big platforms run on, then quietly handle the updates, backups, and security so you never have to think about it again.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Get a quote</a>
+          <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
+        </div>
+      </div>
+    </div>
+    <div class="horizon animated"><span class="horizon-mark"></span></div>
+  </section>
+
+  <!-- ---------- SERVICES ---------- -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What we build</p>
+        <h2>Three ways to get online, matched to what your business actually needs</h2>
+        <p>Not every business needs the same thing. We start by figuring out which of these fits — then build only that.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal">
+          <span class="tag">Most popular</span>
+          <h3>Simple sites</h3>
+          <p>For restaurants, salons, contractors, and shops that need hours, menus, photos, and a way to get found online. Fast to build, and hosting rarely costs more than a coffee a month.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">Update it yourself</span>
+          <h3>Sites you can edit</h3>
+          <p>Built on WordPress, for businesses that post specials, write updates, or swap photos often. We set it up so editing is as easy as writing an email — no code required.</p>
+        </div>
+        <div class="card reveal">
+          <span class="tag">Built to order</span>
+          <h3>Booking, ordering &amp; member tools</h3>
+          <p>For businesses that need something custom — appointment booking, online ordering, a customer portal. We build it around your actual workflow and host it properly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="horizon"><span class="horizon-mark" style="animation:none;left:24%;"></span></div>
+
+  <!-- ---------- HOW IT WORKS ---------- -->
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>From first message to live site, in four steps</h2>
+      </div>
+      <div class="process-list">
+        <div class="process-step reveal">
+          <span class="num">01</span>
+          <h3>Tell us what you need</h3>
+          <p>A short call or message about your business and what the site has to do.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="num">02</span>
+          <h3>We design and build it</h3>
+          <p>You'll see drafts along the way — not a surprise at the end.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="num">03</span>
+          <h3>We put it online</h3>
+          <p>Hosted on secure, professional infrastructure with SSL from day one.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="num">04</span>
+          <h3>We keep it running</h3>
+          <p>Backups, updates, and monitoring, handled quietly in the background.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- WHY ---------- -->
+  <section id="why" class="why-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why Haven Platform</p>
+        <h2>The infrastructure of a big company. The attention of a small one.</h2>
+      </div>
+      <div class="grid-4">
+        <div class="why-item reveal">
+          <h3>Serious infrastructure</h3>
+          <p>Hosted on Amazon Web Services and Cloudflare — tuned down to a fair price for one small business.</p>
+        </div>
+        <div class="why-item reveal">
+          <h3>A person, not a queue</h3>
+          <p>When something needs attention, you talk to the person who actually built your site.</p>
+        </div>
+        <div class="why-item reveal">
+          <h3>Backed up, daily</h3>
+          <p>A bad update or a bad day never means starting over from nothing.</p>
+        </div>
+        <div class="why-item reveal">
+          <h3>No surprise bills</h3>
+          <p>Clear, flat pricing — and we'll tell you when you don't need the expensive option.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="horizon"><span class="horizon-mark" style="animation:none;left:60%;"></span></div>
+
+  <!-- ---------- PRICING ---------- -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Pricing</p>
+        <h2>Straightforward pricing, matched to the size of the job</h2>
+        <p>A one-time build fee to get your site live, then a flat monthly rate that covers hosting, backups, and small updates.</p>
+      </div>
+      <div class="grid-pricing">
+        <div class="price-card reveal">
+          <h3>Starter</h3>
+          <p class="who">A simple, few-page site</p>
+          <div class="amount">$25<span>/mo hosting &amp; care</span></div>
+          <p class="setup">Build from $450, one time</p>
+          <ul>
+            <li>Custom design, built for your business</li>
+            <li>SSL and CDN included</li>
+            <li>Automatic daily backups</li>
+            <li>Minor text &amp; photo updates included</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost">Get a quote</a>
+        </div>
+        <div class="price-card featured reveal">
+          <h3>Managed</h3>
+          <p class="who">A site you'll update often</p>
+          <div class="amount">$55<span>/mo hosting &amp; care</span></div>
+          <p class="setup">Build from $900, one time</p>
+          <ul>
+            <li>WordPress setup, with training</li>
+            <li>SSL and CDN included</li>
+            <li>Daily backups &amp; security updates</li>
+            <li>Priority support response</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Get a quote</a>
+        </div>
+        <div class="price-card reveal">
+          <h3>Custom</h3>
+          <p class="who">Booking, ordering &amp; tools</p>
+          <div class="amount">From $89<span>/mo hosting &amp; care</span></div>
+          <p class="setup">Build cost quoted per project</p>
+          <ul>
+            <li>Built around your actual workflow</li>
+            <li>Secure, scalable hosting</li>
+            <li>Ongoing support &amp; monitoring</li>
+            <li>Direct line for changes &amp; fixes</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost">Get a quote</a>
+        </div>
+      </div>
+      <p class="pricing-note">Every quote starts with a real conversation, not a form. These prices are a starting point — the exact number depends on your site.</p>
+    </div>
+  </section>
+
+  <!-- ---------- CONTACT ---------- -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <div>
+          <h2>Tell us about your business</h2>
+          <p>Send a note with what you need, and we'll reply with a straightforward quote — usually within a day.</p>
+        </div>
+        <a href="mailto:hello@haven-platform.com" class="btn btn-primary">hello@haven-platform.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="horizon"><span class="horizon-mark" style="animation:none;left:40%;"></span></div>
+    <div class="footer-row">
+      <div>
+        <a href="#top" class="logo">Haven<span>.</span> Platform</a>
+        <p class="footer-tag" style="margin-top:.5rem;">A safe harbor for your website.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="mailto:hello@haven-platform.com">Contact</a></li>
+      </ul>
+    </div>
+    <p class="copyright">&copy; <span id="year"></span> Haven Platform. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('navMenu');
+  toggle.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  if ('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+</script>
+
+</body>
+</html>
