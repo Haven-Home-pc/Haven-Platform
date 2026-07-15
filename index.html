@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Haven Platform — Hosting for Small Businesses, from £19/mo</title>
 <meta name="description" content="Haven Platform builds and hosts websites for small businesses and local shops on enterprise-grade infrastructure, with real human support and no surprise bills.">
-<meta property="og:title" content="Haven Platform — Hosting for Small Businesses">
+<meta property="og:title" content="Haven Platform — Cheap, reliable & secure.">
 <meta property="og:description" content="Hosting that just works, from £19/mo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,7 +98,7 @@
 
   /* ---------- hero ---------- */
   .hero{background:var(--band-bg);color:#fff;padding:4.5rem 0;}
-  .hero-inner{max-width:700px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;text-align:left;}
+  .hero-inner{max-width:700px;}
   .hero .eyebrow{color:#8FE3C7;}
   .hero h1{font-size:clamp(2.3rem,5.2vw,3.5rem);letter-spacing:-.015em;margin-bottom:1.1rem;color:#fff;}
   .hero h1 em{font-style:normal;color:var(--brand);}
@@ -238,8 +238,8 @@
 <main id="top">
 
   <!-- ---------- HERO ---------- -->
-  <section class="hero">
-    <div class="wrap hero-inner" style="justify-content:flex-start; align-items:flex-start; text-align:left;">
+  <section class="hero" style="background-image: url('hero-image.png'); background-repeat: no-repeat; background-size: cover; animation: fadeInRight 1.2s ease-out;">
+    <div class="wrap hero-inner">
       <p class="eyebrow">Hosting for small businesses &amp; local shops</p>
       <h1>Hosting that just works, from <em>£19/mo</em></h1>
       <p class="lead">We design, build, and host your site on enterprise-grade infrastructure, then handle updates, backups, and security in the background — with a real person on the other end when you need one.</p>
@@ -253,6 +253,18 @@
         <span class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> Real human support</span>
       </div>
     </div>
+    <style>
+      @keyframes fadeInRight {
+        from {
+          background-position: 100% 0;
+          opacity: 0;
+        }
+        to {
+          background-position: 0 0;
+          opacity: 1;
+        }
+      }
+    </style>
   </section>
 
   <!-- ---------- HOW ---------- -->
