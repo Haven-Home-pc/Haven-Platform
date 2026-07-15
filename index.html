@@ -3,285 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Haven Platform — Websites for small businesses, built and hosted with care</title>
-<meta name="description" content="Haven Platform designs, builds, and hosts websites for small businesses and local shops. Solid infrastructure, plain-spoken support, no surprise bills.">
-<meta property="og:title" content="Haven Platform">
-<meta property="og:description" content="Websites for small businesses, built and hosted with care.">
+<title>Haven Platform — Hosting for Small Businesses, from £19/mo</title>
+<meta name="description" content="Haven Platform builds and hosts websites for small businesses and local shops on enterprise-grade infrastructure, with real human support and no surprise bills.">
+<meta property="og:title" content="Haven Platform — Hosting for Small Businesses">
+<meta property="og:description" content="Hosting that just works, from £19/mo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F5F4EF;
-    --paper-deep:#EEECE3;
-    --card:#FFFFFF;
-    --ink:#1B211F;
-    --ink-soft:#5B655E;
-    --harbor:#2E6259;
-    --harbor-deep:#1F4A42;
-    --harbor-light:#DEE8E4;
-    --lamp:#C98D4A;
-    --line:#DBD8CE;
-    --radius:10px;
-    --wrap:1120px;
+    --ink:#10161A;
+    --ink-soft:#4B5563;
+    --paper:#FFFFFF;
+    --paper-tint:#F4F6F6;
+    --brand:#14B88A;
+    --brand-deep:#0C8F69;
+    --brand-tint:#E3F7F0;
+    --accent:#FF7A45;
+    --line:#E4E7EA;
+    --radius:12px;
+    --wrap:1160px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Work Sans', sans-serif;
-    font-size:16px;
-    line-height:1.65;
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Work Sans', sans-serif;font-size:16px;line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    line-height:1.15;
-    margin:0;
-    color:var(--ink);
-  }
+  h1,h2,h3,h4{font-family:'Space Grotesk', sans-serif;font-weight:600;line-height:1.15;margin:0;color:var(--ink);}
   p{margin:0;}
   a{color:inherit;}
-  img,svg{display:block;max-width:100%;}
+  ul{margin:0;padding:0;list-style:none;}
+  svg{display:block;flex-shrink:0;}
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 1.5rem;}
-  a:focus-visible, button:focus-visible{outline:2px solid var(--harbor);outline-offset:3px;}
+  a:focus-visible, button:focus-visible, summary:focus-visible{outline:2px solid var(--brand);outline-offset:3px;}
 
-  .eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:.5rem;
-    font-size:.78rem;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--harbor-deep);
-    font-weight:600;
-    margin-bottom:1rem;
-  }
-  .eyebrow::before{
-    content:"";
-    width:6px;height:6px;border-radius:50%;
-    background:var(--lamp);
-    flex-shrink:0;
-  }
-
-  /* ---------- horizon divider (signature motif) ---------- */
-  .horizon{
-    position:relative;
-    height:1px;
-    background:var(--line);
-    margin:0 auto;
-    max-width:var(--wrap);
-  }
-  .horizon.animated{margin:3.5rem auto;}
-  .horizon-mark{
-    position:absolute;
-    top:-4.5px;
-    left:12%;
-    width:9px;height:9px;
-    border-radius:50%;
-    background:var(--lamp);
-  }
-  .horizon.animated .horizon-mark{
-    animation:drift 16s ease-in-out infinite;
-  }
-  @keyframes drift{
-    0%,100%{left:6%;}
-    50%{left:76%;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .horizon.animated .horizon-mark{animation:none;left:16%;}
-    html{scroll-behavior:auto;}
-  }
-
-  /* ---------- buttons ---------- */
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:.85rem 1.6rem;
-    border-radius:var(--radius);
-    font-size:.95rem;
-    font-weight:500;
-    text-decoration:none;
-    border:1px solid transparent;
-    cursor:pointer;
-    transition:background .15s ease, border-color .15s ease, color .15s ease;
-  }
-  .btn-primary{background:var(--harbor);color:var(--paper);}
-  .btn-primary:hover{background:var(--harbor-deep);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.7rem;border-radius:8px;font-size:.97rem;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease,transform .1s ease;font-family:'Work Sans',sans-serif;}
+  .btn:active{transform:translateY(1px);}
+  .btn-brand{background:var(--brand);color:#08201A;}
+  .btn-brand:hover{background:var(--brand-deep);color:#fff;}
+  .btn-ghost-dark{border-color:rgba(255,255,255,.35);color:#fff;background:transparent;}
+  .btn-ghost-dark:hover{border-color:#fff;background:rgba(255,255,255,.08);}
   .btn-ghost{border-color:var(--line);color:var(--ink);background:transparent;}
-  .btn-ghost:hover{border-color:var(--harbor);color:var(--harbor-deep);}
+  .btn-ghost:hover{border-color:var(--brand);color:var(--brand-deep);}
+  .btn-block{width:100%;}
+
+  .eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-deep);font-weight:600;margin-bottom:.85rem;}
 
   /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:var(--paper);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-row{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:1.1rem 0;
-  }
-  .logo{
-    font-family:'Fraunces', serif;
-    font-size:1.25rem;
-    font-weight:600;
-    text-decoration:none;
-    color:var(--ink);
-    letter-spacing:-.01em;
-  }
-  .logo span{color:var(--harbor);}
-  .nav-links{
-    display:flex;align-items:center;gap:2.2rem;
-    list-style:none;margin:0;padding:0;
-  }
-  .nav-links a{
-    text-decoration:none;color:var(--ink-soft);font-size:.95rem;
-    transition:color .15s ease;
-  }
-  .nav-links a:hover{color:var(--harbor-deep);}
-  .nav-toggle{
-    display:none;
-    flex-direction:column;
-    gap:5px;
-    background:none;border:none;padding:.4rem;cursor:pointer;
-  }
+  header{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid var(--line);}
+  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;}
+  .logo{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;text-decoration:none;color:var(--ink);letter-spacing:-.01em;}
+  .logo span{color:var(--brand);}
+  #navMenu{display:flex;align-items:center;gap:2rem;}
+  .nav-links{display:flex;align-items:center;gap:1.9rem;}
+  .nav-links a{text-decoration:none;color:var(--ink-soft);font-size:.95rem;font-weight:500;transition:color .15s ease;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:.4rem;cursor:pointer;}
   .nav-toggle span{width:22px;height:2px;background:var(--ink);}
-  #navMenu{display:flex;align-items:center;gap:2.2rem;}
 
-  @media (max-width:820px){
+  @media (max-width:840px){
     .nav-toggle{display:flex;}
-    #navMenu{
-      display:none;
-      position:absolute;top:100%;left:0;right:0;
-      background:var(--paper);
-      border-bottom:1px solid var(--line);
-      flex-direction:column;align-items:flex-start;
-      gap:1.2rem;padding:1.5rem;
-    }
+    #navMenu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:1.1rem;padding:1.5rem;}
     #navMenu.open{display:flex;}
+    .nav-links{flex-direction:column;align-items:flex-start;gap:1rem;}
     #navMenu .btn{width:100%;text-align:center;}
   }
 
+  /* ---------- sub nav (jump links) ---------- */
+  .subnav{position:sticky;top:65px;z-index:55;background:var(--ink);}
+  .subnav-row{display:flex;gap:1.75rem;overflow-x:auto;padding:.85rem 0;-ms-overflow-style:none;scrollbar-width:none;}
+  .subnav-row::-webkit-scrollbar{display:none;}
+  .subnav-row a{color:rgba(255,255,255,.72);text-decoration:none;font-size:.88rem;font-weight:500;white-space:nowrap;}
+  .subnav-row a:hover{color:#fff;}
+
   /* ---------- hero ---------- */
-  .hero{padding:5rem 0 1rem;}
-  .hero-inner{max-width:640px;}
-  .hero h1{
-    font-size:clamp(2.1rem,5vw,3.2rem);
-    letter-spacing:-.01em;
-    margin-bottom:1.4rem;
-  }
-  .hero p.lead{
-    font-size:1.15rem;
-    color:var(--ink-soft);
-    max-width:34rem;
-    margin-bottom:2rem;
-  }
-  .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;}
+  .hero{background:var(--ink);color:#fff;padding:4.5rem 0 3.5rem;}
+  .hero-inner{max-width:700px;}
+  .hero .eyebrow{color:#8FE3C7;}
+  .hero h1{font-size:clamp(2.3rem,5.2vw,3.5rem);letter-spacing:-.015em;margin-bottom:1.1rem;}
+  .hero h1 em{font-style:normal;color:var(--brand);}
+  .hero p.lead{font-size:1.15rem;color:rgba(255,255,255,.72);max-width:36rem;margin-bottom:2rem;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;}
+  .trust-row{display:flex;flex-wrap:wrap;gap:1.75rem;}
+  .trust-row .item{display:flex;align-items:center;gap:.55rem;color:rgba(255,255,255,.85);font-size:.9rem;}
+  .trust-row svg{color:var(--brand);}
 
-  /* ---------- sections ---------- */
+  /* ---------- how strip ---------- */
+  .how{padding:3.25rem 0;border-bottom:1px solid var(--line);}
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+  .how-step .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:var(--brand);display:block;margin-bottom:.5rem;}
+  .how-step h4{font-size:1rem;margin-bottom:.35rem;}
+  .how-step p{color:var(--ink-soft);font-size:.92rem;}
+
   section{padding:4.5rem 0;}
-  .section-head{max-width:38rem;margin-bottom:3rem;}
-  .section-head h2{font-size:clamp(1.6rem,3.2vw,2.15rem);}
-  .section-head p{color:var(--ink-soft);margin-top:1rem;font-size:1.05rem;}
+  .section-head{max-width:40rem;margin:0 auto 2.75rem;text-align:center;}
+  .section-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
+  .section-head p{color:var(--ink-soft);margin-top:.85rem;font-size:1.03rem;}
 
-  /* services */
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-  .card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:2rem;
-  }
-  .card h3{font-size:1.2rem;margin-bottom:.75rem;}
-  .card p{color:var(--ink-soft);font-size:.98rem;}
-  .card .tag{
-    display:inline-block;font-size:.75rem;font-weight:600;
-    color:var(--harbor-deep);background:var(--harbor-light);
-    padding:.3rem .6rem;border-radius:20px;margin-bottom:1rem;
-  }
+  /* ---------- pricing toggle ---------- */
+  .toggle-row{display:flex;justify-content:center;margin-bottom:2.75rem;}
+  .toggle{display:inline-flex;background:var(--paper-tint);border:1px solid var(--line);border-radius:999px;padding:4px;}
+  .toggle button{border:none;background:transparent;padding:.55rem 1.3rem;border-radius:999px;font-size:.88rem;font-weight:600;color:var(--ink-soft);cursor:pointer;font-family:'Work Sans',sans-serif;}
+  .toggle button.active{background:var(--ink);color:#fff;}
 
-  /* process */
-  .process-list{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-  .process-step .num{
-    font-family:'Fraunces', serif;
-    font-size:1.6rem;color:var(--lamp);
-    margin-bottom:.75rem;
-    display:block;
-  }
-  .process-step h3{font-size:1.05rem;margin-bottom:.5rem;}
-  .process-step p{color:var(--ink-soft);font-size:.95rem;}
-
-  /* why */
-  .why-section{background:var(--paper-deep);}
-  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-  .why-item h3{font-size:1.02rem;margin-bottom:.5rem;}
-  .why-item p{color:var(--ink-soft);font-size:.92rem;}
-
-  /* pricing */
   .grid-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:stretch;}
-  .price-card{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:2rem;display:flex;flex-direction:column;
-  }
-  .price-card.featured{border-color:var(--harbor);box-shadow:0 0 0 1px var(--harbor);}
-  .price-card h3{font-size:1.15rem;margin-bottom:.4rem;}
-  .price-card .who{color:var(--ink-soft);font-size:.92rem;margin-bottom:1.4rem;}
-  .price-card .amount{font-family:'Fraunces', serif;font-size:1.8rem;margin-bottom:.15rem;}
-  .price-card .amount span{font-family:'Work Sans', sans-serif;font-size:.9rem;color:var(--ink-soft);font-weight:400;}
-  .price-card .setup{font-size:.85rem;color:var(--ink-soft);margin-bottom:1.4rem;}
-  .price-card ul{list-style:none;margin:0 0 1.6rem;padding:0;flex:1;}
-  .price-card li{
-    font-size:.92rem;color:var(--ink-soft);padding:.4rem 0;
-    border-top:1px solid var(--line);
-  }
-  .price-card li:first-child{border-top:none;}
-  .pricing-note{color:var(--ink-soft);font-size:.9rem;margin-top:2rem;max-width:38rem;}
+  .price-card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:2.25rem 1.9rem;display:flex;flex-direction:column;}
+  .price-card.featured{border:2px solid var(--brand);}
+  .ribbon{position:absolute;top:-13px;left:1.9rem;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:.3rem .7rem;border-radius:999px;}
+  .price-card h3{font-size:1.2rem;margin-bottom:.3rem;}
+  .price-card .who{color:var(--ink-soft);font-size:.9rem;margin-bottom:1.5rem;}
+  .price-strike{font-size:.95rem;color:var(--ink-soft);text-decoration:line-through;display:none;}
+  .price-strike.show{display:inline;}
+  .price-amount{display:flex;align-items:baseline;gap:.4rem;margin:.15rem 0 .2rem;}
+  .price-amount .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2.2rem;}
+  .price-amount .per{color:var(--ink-soft);font-size:.9rem;}
+  .price-fine{font-size:.82rem;color:var(--ink-soft);margin-bottom:1.6rem;}
+  .price-card ul{margin-bottom:1.7rem;flex:1;}
+  .price-card li{display:flex;align-items:flex-start;gap:.6rem;font-size:.92rem;color:var(--ink-soft);padding:.42rem 0;}
+  .price-card li svg{color:var(--brand);margin-top:2px;}
 
-  /* contact */
-  .contact-box{
-    background:var(--harbor-deep);color:var(--paper);
-    border-radius:var(--radius);
-    padding:3.5rem 3rem;
-    display:flex;flex-wrap:wrap;gap:2rem;
-    align-items:center;justify-content:space-between;
-  }
-  .contact-box h2{color:var(--paper);font-size:clamp(1.5rem,3vw,2rem);max-width:26rem;}
-  .contact-box p{color:#CFE0DA;margin-top:.75rem;max-width:26rem;}
-  .contact-box .btn-primary{background:var(--paper);color:var(--harbor-deep);}
-  .contact-box .btn-primary:hover{background:#fff;}
+  .pricing-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:2.25rem;}
 
-  /* footer */
-  footer{padding:3rem 0 2.5rem;}
-  .footer-row{
-    display:flex;flex-wrap:wrap;gap:1.5rem;
-    align-items:center;justify-content:space-between;
-    padding-top:2.5rem;
-  }
-  .footer-links{display:flex;gap:1.6rem;list-style:none;padding:0;margin:0;}
+  /* ---------- included grid ---------- */
+  .included{background:var(--paper-tint);}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.75rem;}
+  .inc-item{text-align:center;padding:0 .5rem;}
+  .inc-item .ic{width:52px;height:52px;border-radius:50%;background:var(--brand-tint);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;}
+  .inc-item h4{font-size:1rem;margin-bottom:.4rem;}
+  .inc-item p{color:var(--ink-soft);font-size:.88rem;}
+
+  /* ---------- feature blocks ---------- */
+  .feature-blocks{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+  .feature-block{display:flex;gap:1.25rem;padding:2rem;border:1px solid var(--line);border-radius:var(--radius);}
+  .feature-block .ic{width:46px;height:46px;border-radius:10px;background:var(--brand-tint);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .feature-block h3{font-size:1.1rem;margin-bottom:.5rem;}
+  .feature-block p{color:var(--ink-soft);font-size:.94rem;}
+
+  /* ---------- why / stats ---------- */
+  .why-section{background:var(--ink);color:#fff;}
+  .why-section .section-head h2{color:#fff;}
+  .why-section .section-head p{color:rgba(255,255,255,.65);}
+  .why-section .eyebrow{color:#8FE3C7;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;}
+  .stat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:2rem;}
+  .stat-card .ic{width:44px;height:44px;border-radius:10px;background:rgba(20,184,138,.18);color:var(--brand);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;}
+  .stat-card h3{color:#fff;font-size:1.1rem;margin-bottom:.6rem;}
+  .stat-card p{color:rgba(255,255,255,.68);font-size:.92rem;}
+
+  /* ---------- cross-sell ---------- */
+  .grid-cross{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .cross-card{border:1px solid var(--line);border-radius:var(--radius);padding:2rem;display:flex;flex-direction:column;}
+  .cross-card .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--brand-deep);background:var(--brand-tint);padding:.3rem .65rem;border-radius:999px;margin-bottom:1rem;align-self:flex-start;}
+  .cross-card h3{font-size:1.1rem;margin-bottom:.6rem;}
+  .cross-card p{color:var(--ink-soft);font-size:.92rem;margin-bottom:1.4rem;flex:1;}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:44rem;margin:0 auto;}
+  .faq details{border-bottom:1px solid var(--line);padding:1.25rem 0;}
+  .faq summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;font-weight:600;font-size:1rem;list-style:none;color:var(--ink);}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary .chev{transition:transform .2s ease;color:var(--ink-soft);flex-shrink:0;}
+  .faq details[open] summary .chev{transform:rotate(180deg);}
+  .faq .faq-a{color:var(--ink-soft);font-size:.95rem;margin-top:.9rem;line-height:1.65;}
+
+  /* ---------- final CTA ---------- */
+  .cta-band{background:var(--ink);color:#fff;text-align:center;}
+  .cta-band h2{color:#fff;font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:1rem;}
+  .cta-band p{color:rgba(255,255,255,.68);max-width:32rem;margin:0 auto 2rem;}
+
+  /* ---------- footer ---------- */
+  footer{padding:3rem 0 2.5rem;border-top:1px solid var(--line);}
+  .footer-row{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;}
+  .footer-links{display:flex;gap:1.6rem;}
   .footer-links a{text-decoration:none;color:var(--ink-soft);font-size:.9rem;}
-  .footer-links a:hover{color:var(--harbor-deep);}
-  .footer-tag{color:var(--ink-soft);font-size:.9rem;}
-  .copyright{color:var(--ink-soft);font-size:.85rem;margin-top:2rem;}
+  .footer-links a:hover{color:var(--ink);}
+  .footer-tag{color:var(--ink-soft);font-size:.88rem;margin-top:.4rem;}
+  .copyright{color:var(--ink-soft);font-size:.83rem;margin-top:2rem;}
 
-  /* reveal on scroll */
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease;}
   .reveal.is-visible{opacity:1;transform:none;}
-  @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1;transform:none;transition:none;}
-  }
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
 
-  @media (max-width:900px){
-    .grid-3,.grid-4,.grid-pricing{grid-template-columns:1fr 1fr;}
-    .process-list{grid-template-columns:1fr 1fr;}
+  @media (max-width:960px){
+    .grid-4,.grid-3,.grid-cross,.grid-pricing{grid-template-columns:1fr 1fr;}
+    .feature-blocks{grid-template-columns:1fr;}
+    .how-grid{grid-template-columns:1fr;}
   }
   @media (max-width:620px){
-    .grid-3,.grid-4,.grid-pricing,.process-list{grid-template-columns:1fr;}
-    .contact-box{padding:2.5rem 1.75rem;}
+    .grid-4,.grid-3,.grid-cross,.grid-pricing{grid-template-columns:1fr;}
     section{padding:3.25rem 0;}
+    .subnav{top:64px;}
   }
 </style>
 </head>
@@ -289,97 +202,198 @@
 
 <header>
   <div class="wrap nav-row">
-    <a href="#top" class="logo">Haven<span>.</span> Platform</a>
+    <a href="#top" class="logo">Haven<span>.</span></a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
-    <nav id="navMenu">
+    <div id="navMenu">
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#how-it-works">How it works</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#why">Why us</a></li>
+        <li><a href="#plans">Plans &amp; pricing</a></li>
+        <li><a href="#why">Why Haven</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
-      <a href="#contact" class="btn btn-primary">Get a quote</a>
-    </nav>
+      <a href="#contact" class="btn btn-brand">Get a quote</a>
+    </div>
   </div>
 </header>
+
+<nav class="subnav" aria-label="Section links">
+  <div class="wrap subnav-row">
+    <a href="#plans">Plans &amp; Pricing</a>
+    <a href="#included">What's Included</a>
+    <a href="#why">Why Haven</a>
+    <a href="#services">Hosting Options</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
 
 <main id="top">
 
   <!-- ---------- HERO ---------- -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-inner">
-        <p class="eyebrow">Websites for small businesses &amp; local shops</p>
-        <h1>A website that just works — and someone who answers when it doesn't.</h1>
-        <p class="lead">We design, build, and host your site on the same infrastructure the big platforms run on, then quietly handle the updates, backups, and security so you never have to think about it again.</p>
-        <div class="hero-ctas">
-          <a href="#contact" class="btn btn-primary">Get a quote</a>
-          <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
-        </div>
+  <section class="hero" style="padding-bottom:0;">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Hosting for small businesses &amp; local shops</p>
+      <h1>Hosting that just works, from <em>£19/mo</em></h1>
+      <p class="lead">We design, build, and host your site on enterprise-grade infrastructure, then handle updates, backups, and security in the background — with a real person on the other end when you need one.</p>
+      <div class="hero-ctas">
+        <a href="#plans" class="btn btn-brand">See plans &amp; pricing</a>
+        <a href="#contact" class="btn btn-ghost-dark">Get a quote</a>
       </div>
-    </div>
-    <div class="horizon animated"><span class="horizon-mark"></span></div>
-  </section>
-
-  <!-- ---------- SERVICES ---------- -->
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">What we build</p>
-        <h2>Three ways to get online, matched to what your business actually needs</h2>
-        <p>Not every business needs the same thing. We start by figuring out which of these fits — then build only that.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card reveal">
-          <span class="tag">Most popular</span>
-          <h3>Simple sites</h3>
-          <p>For restaurants, salons, contractors, and shops that need hours, menus, photos, and a way to get found online. Fast to build, and hosting rarely costs more than a coffee a month.</p>
-        </div>
-        <div class="card reveal">
-          <span class="tag">Update it yourself</span>
-          <h3>Sites you can edit</h3>
-          <p>Built on WordPress, for businesses that post specials, write updates, or swap photos often. We set it up so editing is as easy as writing an email — no code required.</p>
-        </div>
-        <div class="card reveal">
-          <span class="tag">Built to order</span>
-          <h3>Booking, ordering &amp; member tools</h3>
-          <p>For businesses that need something custom — appointment booking, online ordering, a customer portal. We build it around your actual workflow and host it properly.</p>
-        </div>
+      <div class="trust-row">
+        <span class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg> Security included</span>
+        <span class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg> 99.9% uptime target</span>
+        <span class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> Real human support</span>
       </div>
     </div>
   </section>
 
-  <div class="horizon"><span class="horizon-mark" style="animation:none;left:24%;"></span></div>
+  <!-- ---------- HOW ---------- -->
+  <section class="how" id="how">
+    <div class="wrap how-grid">
+      <div class="how-step reveal">
+        <span class="num">01</span>
+        <h4>Tell us what you need</h4>
+        <p>A short call about your business and what the site has to do.</p>
+      </div>
+      <div class="how-step reveal">
+        <span class="num">02</span>
+        <h4>We design &amp; build it</h4>
+        <p>You'll see drafts along the way — not a surprise at the end.</p>
+      </div>
+      <div class="how-step reveal">
+        <span class="num">03</span>
+        <h4>We host &amp; look after it</h4>
+        <p>Backups, updates, and monitoring, handled quietly for you.</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- ---------- HOW IT WORKS ---------- -->
-  <section id="how-it-works">
+  <!-- ---------- PLANS ---------- -->
+  <section id="plans">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">How it works</p>
-        <h2>From first message to live site, in four steps</h2>
+        <p class="eyebrow">Plans &amp; pricing</p>
+        <h2>Straightforward hosting plans for real small businesses</h2>
+        <p>A one-time build fee to get your site live, then a flat monthly rate that covers hosting, backups, and small updates.</p>
       </div>
-      <div class="process-list">
-        <div class="process-step reveal">
-          <span class="num">01</span>
-          <h3>Tell us what you need</h3>
-          <p>A short call or message about your business and what the site has to do.</p>
+
+      <div class="toggle-row">
+        <div class="toggle" id="billToggle">
+          <button type="button" class="active" data-mode="intro">First 3 months</button>
+          <button type="button" data-mode="standard">Standard pricing</button>
         </div>
-        <div class="process-step reveal">
-          <span class="num">02</span>
-          <h3>We design and build it</h3>
-          <p>You'll see drafts along the way — not a surprise at the end.</p>
+      </div>
+
+      <div class="grid-pricing">
+        <div class="price-card reveal">
+          <h3>Starter</h3>
+          <p class="who">For simple, few-page sites</p>
+          <div class="price-amount">
+            <span class="price-strike show" data-strike>£29</span>
+            <span class="num" data-num>£19</span><span class="per">/mo</span>
+          </div>
+          <p class="price-fine" data-fine>For your first 3 months, then £29/mo. Build from £399, one time.</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Custom design, built for your business</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Free SSL &amp; CDN included</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Automatic daily backups</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Minor text &amp; photo updates included</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-block">Get a quote</a>
         </div>
-        <div class="process-step reveal">
-          <span class="num">03</span>
-          <h3>We put it online</h3>
-          <p>Hosted on secure, professional infrastructure with SSL from day one.</p>
+
+        <div class="price-card featured reveal">
+          <span class="ribbon">Most popular</span>
+          <h3>Managed</h3>
+          <p class="who">For sites you'll update often</p>
+          <div class="price-amount">
+            <span class="price-strike show" data-strike>£59</span>
+            <span class="num" data-num>£39</span><span class="per">/mo</span>
+          </div>
+          <p class="price-fine" data-fine>For your first 3 months, then £59/mo. Build from £799, one time.</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> WordPress setup, with training</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Free SSL &amp; CDN included</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Daily backups &amp; security updates</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Priority support response</li>
+          </ul>
+          <a href="#contact" class="btn btn-brand btn-block">Get a quote</a>
         </div>
-        <div class="process-step reveal">
-          <span class="num">04</span>
-          <h3>We keep it running</h3>
-          <p>Backups, updates, and monitoring, handled quietly in the background.</p>
+
+        <div class="price-card reveal">
+          <h3>Custom</h3>
+          <p class="who">Booking, ordering &amp; member tools</p>
+          <div class="price-amount">
+            <span class="price-strike" data-strike>&nbsp;</span>
+            <span class="num" data-num>£89</span><span class="per">/mo</span>
+          </div>
+          <p class="price-fine" data-fine>From £89/mo. Build cost quoted per project.</p>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Built around your actual workflow</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Secure, scalable hosting</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Ongoing support &amp; monitoring</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Direct line for changes &amp; fixes</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-block">Get a quote</a>
+        </div>
+      </div>
+      <p class="pricing-note">Every quote starts with a real conversation, not a form. These prices are a starting point — the exact number depends on your site.</p>
+    </div>
+  </section>
+
+  <!-- ---------- INCLUDED ---------- -->
+  <section class="included" id="included">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Every plan includes</p>
+        <h2>Included with every plan</h2>
+      </div>
+      <div class="grid-4">
+        <div class="inc-item reveal">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg></div>
+          <h4>99.9% uptime target</h4>
+          <p>Built on infrastructure designed to keep your site online.</p>
+        </div>
+        <div class="inc-item reveal">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></div>
+          <h4>Free SSL &amp; CDN</h4>
+          <p>Every site is secure and fast from the moment it launches.</p>
+        </div>
+        <div class="inc-item reveal">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.3 6.4L3 16"/><path d="M3 21v-5h5"/></svg></div>
+          <h4>Automatic daily backups</h4>
+          <p>A bad update never means starting over from nothing.</p>
+        </div>
+        <div class="inc-item reveal">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <h4>Real human support</h4>
+          <p>You talk to the person who actually built your site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- FEATURE BLOCKS ---------- -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What you get</p>
+        <h2>Hosting that delivers</h2>
+      </div>
+      <div class="feature-blocks">
+        <div class="feature-block reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 11 14 10 22 21 10 13 10 13 2"/></svg></div>
+          <div>
+            <h3>Built to grow with you</h3>
+            <p>Start with a simple site and move up to WordPress or a custom tool later, without switching hosts or starting from scratch.</p>
+          </div>
+        </div>
+        <div class="feature-block reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg></div>
+          <div>
+            <h3>Backed by a guarantee</h3>
+            <p>If Haven Platform isn't the right fit in the first 30 days, we'll refund your hosting fee — no long explanation required.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -392,92 +406,94 @@
         <p class="eyebrow">Why Haven Platform</p>
         <h2>The infrastructure of a big company. The attention of a small one.</h2>
       </div>
-      <div class="grid-4">
-        <div class="why-item reveal">
-          <h3>Serious infrastructure</h3>
-          <p>Hosted on Amazon Web Services and Cloudflare — tuned down to a fair price for one small business.</p>
+      <div class="grid-3">
+        <div class="stat-card reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg></div>
+          <h3>Enterprise-grade infrastructure</h3>
+          <p>Hosted on Amazon Web Services and Cloudflare — the same infrastructure trusted by companies serving millions of requests a day, tuned down to a fair price for one small business.</p>
         </div>
-        <div class="why-item reveal">
-          <h3>A person, not a queue</h3>
-          <p>When something needs attention, you talk to the person who actually built your site.</p>
+        <div class="stat-card reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 11 14 10 22 21 10 13 10 13 2"/></svg></div>
+          <h3>Fast by default</h3>
+          <p>Every site ships with a global CDN and modern caching, so pages load quickly wherever your customers are.</p>
         </div>
-        <div class="why-item reveal">
-          <h3>Backed up, daily</h3>
-          <p>A bad update or a bad day never means starting over from nothing.</p>
-        </div>
-        <div class="why-item reveal">
-          <h3>No surprise bills</h3>
-          <p>Clear, flat pricing — and we'll tell you when you don't need the expensive option.</p>
+        <div class="stat-card reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <h3>A person, not a call centre</h3>
+          <p>No ticket queue, no outsourced script-reading. You work directly with the person who built and hosts your site.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="horizon"><span class="horizon-mark" style="animation:none;left:60%;"></span></div>
-
-  <!-- ---------- PRICING ---------- -->
-  <section id="pricing">
+  <!-- ---------- HOSTING OPTIONS ---------- -->
+  <section id="services">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Pricing</p>
-        <h2>Straightforward pricing, matched to the size of the job</h2>
-        <p>A one-time build fee to get your site live, then a flat monthly rate that covers hosting, backups, and small updates.</p>
+        <p class="eyebrow">Hosting options</p>
+        <h2>Three ways to get online, matched to what you need</h2>
       </div>
-      <div class="grid-pricing">
-        <div class="price-card reveal">
-          <h3>Starter</h3>
-          <p class="who">A simple, few-page site</p>
-          <div class="amount">$25<span>/mo hosting &amp; care</span></div>
-          <p class="setup">Build from $450, one time</p>
-          <ul>
-            <li>Custom design, built for your business</li>
-            <li>SSL and CDN included</li>
-            <li>Automatic daily backups</li>
-            <li>Minor text &amp; photo updates included</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost">Get a quote</a>
+      <div class="grid-cross">
+        <div class="cross-card reveal">
+          <span class="tag">Starter</span>
+          <h3>Simple sites</h3>
+          <p>For restaurants, salons, contractors, and shops that need hours, menus, photos, and a way to get found online.</p>
+          <a href="#plans" class="btn btn-ghost btn-block">See pricing</a>
         </div>
-        <div class="price-card featured reveal">
-          <h3>Managed</h3>
-          <p class="who">A site you'll update often</p>
-          <div class="amount">$55<span>/mo hosting &amp; care</span></div>
-          <p class="setup">Build from $900, one time</p>
-          <ul>
-            <li>WordPress setup, with training</li>
-            <li>SSL and CDN included</li>
-            <li>Daily backups &amp; security updates</li>
-            <li>Priority support response</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary">Get a quote</a>
+        <div class="cross-card reveal">
+          <span class="tag">Managed</span>
+          <h3>WordPress &amp; CMS sites</h3>
+          <p>For businesses that post specials, write updates, or swap photos often — editable by you, hosted and secured by us.</p>
+          <a href="#plans" class="btn btn-ghost btn-block">See pricing</a>
         </div>
-        <div class="price-card reveal">
-          <h3>Custom</h3>
-          <p class="who">Booking, ordering &amp; tools</p>
-          <div class="amount">From $89<span>/mo hosting &amp; care</span></div>
-          <p class="setup">Build cost quoted per project</p>
-          <ul>
-            <li>Built around your actual workflow</li>
-            <li>Secure, scalable hosting</li>
-            <li>Ongoing support &amp; monitoring</li>
-            <li>Direct line for changes &amp; fixes</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost">Get a quote</a>
+        <div class="cross-card reveal">
+          <span class="tag">Custom</span>
+          <h3>Booking, ordering &amp; tools</h3>
+          <p>For businesses that need something built to order — appointment booking, online ordering, a customer portal.</p>
+          <a href="#plans" class="btn btn-ghost btn-block">See pricing</a>
         </div>
       </div>
-      <p class="pricing-note">Every quote starts with a real conversation, not a form. These prices are a starting point — the exact number depends on your site.</p>
     </div>
   </section>
 
-  <!-- ---------- CONTACT ---------- -->
-  <section id="contact">
+  <!-- ---------- FAQ ---------- -->
+  <section id="faq">
     <div class="wrap">
-      <div class="contact-box reveal">
-        <div>
-          <h2>Tell us about your business</h2>
-          <p>Send a note with what you need, and we'll reply with a straightforward quote — usually within a day.</p>
-        </div>
-        <a href="mailto:hello@haven-platform.com" class="btn btn-primary">hello@haven-platform.com</a>
+      <div class="section-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2>Common questions</h2>
       </div>
+      <div class="faq reveal">
+        <details open>
+          <summary>Do I need to buy a domain separately?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+          <p class="faq-a">If you already own a domain, we'll connect it for you. If not, we can help you register one as part of your setup — either way, it's covered in your onboarding call.</p>
+        </details>
+        <details>
+          <summary>Can you move my existing website to Haven Platform?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+          <p class="faq-a">Yes. We'll review what you have, migrate your content, and check everything works before pointing your domain over — so there's no downtime for your customers.</p>
+        </details>
+        <details>
+          <summary>What if my site needs something more custom later?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+          <p class="faq-a">You can move up a tier at any time. We'll quote the extra work up front, and your existing site and content carry over.</p>
+        </details>
+        <details>
+          <summary>How fast will my site actually be?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+          <p class="faq-a">Every plan includes a content delivery network, so pages are served from a location close to each visitor rather than a single distant server.</p>
+        </details>
+        <details>
+          <summary>Do you offer a money-back guarantee?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+          <p class="faq-a">Yes — if hosting with us isn't the right fit in your first 30 days, we'll refund what you've paid for hosting.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- FINAL CTA ---------- -->
+  <section class="cta-band" id="contact">
+    <div class="wrap">
+      <h2>Ready for a website that just works?</h2>
+      <p>Send a note with what you need, and we'll reply with a straightforward quote — usually within a day.</p>
+      <a href="mailto:hello@haven-platform.com" class="btn btn-brand">hello@haven-platform.com</a>
     </div>
   </section>
 
@@ -485,16 +501,15 @@
 
 <footer>
   <div class="wrap">
-    <div class="horizon"><span class="horizon-mark" style="animation:none;left:40%;"></span></div>
     <div class="footer-row">
       <div>
-        <a href="#top" class="logo">Haven<span>.</span> Platform</a>
-        <p class="footer-tag" style="margin-top:.5rem;">A safe harbor for your website.</p>
+        <a href="#top" class="logo">Haven<span>.</span></a>
+        <p class="footer-tag">A safe harbor for your website.</p>
       </div>
       <ul class="footer-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#how-it-works">How it works</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#why">Why Haven</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="mailto:hello@haven-platform.com">Contact</a></li>
       </ul>
     </div>
@@ -518,6 +533,33 @@
     });
   });
 
+  document.querySelectorAll('[data-num]').forEach(function(el){
+    el.dataset.introValue = el.textContent;
+  });
+
+  var billButtons = document.querySelectorAll('#billToggle button');
+  billButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      billButtons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var intro = btn.dataset.mode === 'intro';
+      document.querySelectorAll('.price-card').forEach(function(card){
+        var strike = card.querySelector('[data-strike]');
+        var num = card.querySelector('[data-num]');
+        var fine = card.querySelector('[data-fine]');
+        if(!strike || !num || !fine) return;
+        if(strike.textContent.trim() === ''){ return; } /* custom tier: no toggle effect */
+        if(intro){
+          strike.classList.add('show');
+          num.textContent = num.dataset.introValue;
+        } else {
+          strike.classList.remove('show');
+          num.textContent = strike.textContent;
+        }
+      });
+    });
+  });
+
   if ('IntersectionObserver' in window){
     var obs = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
@@ -526,7 +568,7 @@
           obs.unobserve(entry.target);
         }
       });
-    }, {threshold:.15});
+    }, {threshold:.12});
     document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
