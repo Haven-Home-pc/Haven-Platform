@@ -238,7 +238,7 @@
 <main id="top">
 
   <!-- ---------- HERO ---------- -->
-  <section class="hero" style="background-image: url('hero-image.png'); background-repeat: no-repeat; background-size: cover; background-position: center 0; animation: fadeInRight 1.2s ease-out;">
+  <section id="hero" class="hero" style="background-image: url('hero-image.png'); background-repeat: no-repeat; background-size: cover; background-position: center 0;">
     <div class="wrap hero-inner">
       <p class="eyebrow">Hosting for small businesses &amp; local shops</p>
       <h1>Hosting that just works, from <em>£19/mo</em></h1>
@@ -265,6 +265,30 @@
         }
       }
     </style>
+    <script>
+      (function(){
+        const hero = document.getElementById('hero');
+        if(!hero) return;
+        let latestScroll = 0;
+        let ticking = false;
+
+        function update() {
+          // Inverted scroll: move background opposite to page scroll
+          const offset = -latestScroll * 0.2; // adjust multiplier for strength
+          // Use calc with center to preserve horizontal centering
+          hero.style.backgroundPosition = `center ${offset}px`;
+          ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+          latestScroll = window.scrollY || window.pageYOffset;
+          if(!ticking) {
+            window.requestAnimationFrame(update);
+            ticking = true;
+          }
+        }, {passive: true});
+      })();
+    </script>
   </section>
 
   <!-- ---------- HOW ---------- -->
